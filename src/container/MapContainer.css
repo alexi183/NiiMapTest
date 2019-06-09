@@ -1,0 +1,18 @@
+.wrapper {
+   width: 1200px;
+   margin: 0 auto;
+}
+
+.col {
+   width: 50%;
+}
+
+.form-control.is-invalid  {
+   background-image: none!important;
+}
+
+.error {
+   color: #dc3545;
+   font-size: 15px;
+   font-style: italic;
+}

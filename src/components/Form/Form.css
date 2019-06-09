@@ -1,0 +1,17 @@
+.form-row-input {
+   position: relative;
+}
+
+.error-tooltip {
+   position: absolute;
+   top: 100%;
+   z-index: 5;
+   max-width: 100%;
+   padding: .5rem;
+   margin-top: .1rem;
+   font-size: .875rem;
+   line-height: 1;
+   color: #fff;
+   background-color: rgba(220,53,69,.8);
+   border-radius: .2rem;
+}
