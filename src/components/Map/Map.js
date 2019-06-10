@@ -4,16 +4,12 @@ import './Map.css'
 
 const MapComponent = (props) => {
 
-   let obj = props.marks[props.marks.length-1];
-
-   console.log((obj) && [obj.latitude, obj.longitude]);
-
    return (
        <YMaps>
           <Map
               state={{
                  center: [55.75, 37.57],
-                 zoom: 9,
+                 zoom: 7,
                  controls: ['zoomControl', 'fullscreenControl'],
               }}
               width={500}
@@ -22,23 +18,17 @@ const MapComponent = (props) => {
           >
 
              {props.marks.map((item, i) =>
-                     /* (item.latitude, item.longitude).contains ?*/
-                     <Placemark
-                         key={i}
-                         geometry={[item.latitude, item.longitude]}
-                         options={{
-                            preset: 'islands#nightDotIcon'
-                         }}
-                         properties={{
-                            iconCaption: item.title
-                         }}
-                     />
-                 // :
-                 // <div>
-                 //    Координаты выходят за рамки карты
-                 // </div>
+                 <Placemark
+                     key={i}
+                     geometry={[item.latitude, item.longitude]}
+                     options={{
+                        preset: 'islands#nightDotIcon'
+                     }}
+                     properties={{
+                        iconCaption: item.title
+                     }}
+                 />
              )}
-
           </Map>
        </YMaps>
    )

@@ -3,7 +3,6 @@ import reduxThunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { reducer as formReducer } from 'redux-form';
 import MapReducer from "../reducers/MapReducer";
-import {ADD_ITEM} from '../actions/Map';
 
 function saveToLocalStorage(state) {
    try {
@@ -27,18 +26,7 @@ function loadFromLocalStorage() {
 
 const reducer = combineReducers({
    marks: MapReducer,
-/*   form: formReducer,*/
-
-   form: formReducer.plugin({
-      marks: (state, action) => {
-         switch(action.type) {
-            case ADD_ITEM:
-               return undefined;
-            default:
-               return state;
-         }
-      }
-   })
+   form: formReducer
 });
 
 const persistedState = loadFromLocalStorage();

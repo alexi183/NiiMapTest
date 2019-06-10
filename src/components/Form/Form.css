@@ -15,3 +15,8 @@
    background-color: rgba(220,53,69,.8);
    border-radius: .2rem;
 }
+
+.message {
+   color: #dc3545;
+   font-size: 17px;
+}

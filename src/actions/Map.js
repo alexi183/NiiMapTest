@@ -1,7 +1,9 @@
 export const ADD_ITEM = 'ADD_ITEM';
+export const REMOVE_MARK_ADDED_MESSAGE = 'REMOVE_MARK_ADDED_MESSAGE';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const RESET_ITEM = 'RESET_ITEM';
-export const TIMER = 'TIMER';
+export const REMOVE_ALERT = 'REMOVE_ALERT';
+export const REMOVE_CONFIRM = 'REMOVE_CONFIRM';
 
 export function addItem() {
    return (dispatch, getState) => {
@@ -27,10 +29,19 @@ export const removeItem = (id) => ({
    payload: id
 });
 
+export const removeMarkMessage = () => ({
+   type: REMOVE_MARK_ADDED_MESSAGE,
+});
+
 export const resetItem = () => ({
    type: RESET_ITEM
 });
 
-export const timer = () => ({
-   type: TIMER
+export const removeAlert = () => ({
+   type: REMOVE_ALERT
 })
+
+export const removeConfirm = () => ({
+   type: REMOVE_CONFIRM
+})
+

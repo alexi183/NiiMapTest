@@ -2,8 +2,9 @@ import * as actions from '../actions/Map';
 
 const INITIAL_STATE = {
    marks: [],
-   count: 3,
-   delete: false
+   messageMarkerAdded: false,
+   deleteMark: false,
+   deleteConfirm: false,
 }
 
 const MapReducer = (state = INITIAL_STATE, action) => {
@@ -14,34 +15,29 @@ const MapReducer = (state = INITIAL_STATE, action) => {
          if ([...state.marks].find((item) =>
              item.title.toLowerCase() === action.marks.title.toLowerCase())
          ) {
-            return {...state, marks: [...state.marks, action.marks], delete: true}
+            return {...state, marks: [...state.marks, action.marks], deleteMark: true}
 
          } else {
-            return {...state, marks: [...state.marks, action.marks], delete: false}
+            return {...state, marks: [...state.marks, action.marks], messageMarkerAdded: true}
          }
 
+      case actions.REMOVE_MARK_ADDED_MESSAGE:
+         return {...state, messageMarkerAdded: false}
 
       case actions.REMOVE_ITEM:
-
          let updatedList = [...state.marks];
          updatedList.splice(action.payload, 1)
 
-         return {...state, marks: updatedList, delete: false}
+         return {...state, marks: updatedList}
 
+      case actions.REMOVE_ALERT:
+         return {...state, deleteMark: false, deleteConfirm: true}
 
       case actions.RESET_ITEM:
-         return {...state, delete: false}
+         return {...state, deleteMark: false, deleteConfirm: false}
 
-
-      case actions.TIMER:
-
-         if(state.count > 0) {
-            state.count--
-         } else if (state.count === 0) {
-            state.count = 3
-         }
-
-         return {...state, count: state.count}
+      case actions.REMOVE_CONFIRM:
+         return {...state, deleteConfirm: false}
 
       default: {
          return state;

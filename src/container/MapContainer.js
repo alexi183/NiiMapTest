@@ -25,18 +25,21 @@ class MapContainer extends Component {
 const mapStateToProps = state => {
    return {
       marks: state.marks.marks,
-      time: state.marks.count,
-      deleteMark: state.marks.delete,
-      count: state.marks.count
+      messageMarkerAdded: state.marks.messageMarkerAdded,
+      markerAdded: state.marks.markerAdded,
+      deleteMark: state.marks.deleteMark,
+      deleteConfirm: state.marks.deleteConfirm,
    };
 };
 
 const mapDispatchToProps = dispatch => {
    return {
       addItem: () => dispatch(actions.addItem()),
+      removeMarkMessage: () => dispatch(actions.removeMarkMessage()),
       removeItem: (state) => dispatch(actions.removeItem(state)),
       resetItem: () => dispatch(actions.resetItem()),
-      timer: () => dispatch(actions.timer())
+      removeAlert: () => dispatch(actions.removeAlert()),
+      removeConfirm: () => dispatch(actions.removeConfirm()),
    };
 };
 
