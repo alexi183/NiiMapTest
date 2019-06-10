@@ -1,3 +1,7 @@
+.container {
+   display: flex;
+}
+
 .form-row-input {
    position: relative;
 }
@@ -19,4 +23,16 @@
 .message {
    color: #dc3545;
    font-size: 17px;
+}
+
+@media screen and (max-width: 1200px) {
+   .container {
+      display: block;
+   }
+   .map-container {
+      margin-top: 15px;
+   }
+   .map-container div {
+      width: 100%!important;
+   }
 }

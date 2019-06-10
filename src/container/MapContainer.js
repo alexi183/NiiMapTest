@@ -10,11 +10,11 @@ class MapContainer extends Component {
    render() {
 
       return (
-          <div className="wrapper d-flex">
-             <div className="col">
+          <div className="container pt-3">
+             <div className="col-xl-6 col-lg-12">
                 <Form {...this.props} />
              </div>
-             <div className="col">
+             <div className="map-container col-xl-6 col-lg-12">
                 <MapComponent {...this.props} />
              </div>
           </div>
